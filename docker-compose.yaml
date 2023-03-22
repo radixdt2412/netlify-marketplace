@@ -1,0 +1,90 @@
+version: '3.8'
+services:
+  nats:
+    image: nats-streaming
+    entrypoint:
+    - /nats-streaming-server
+    - -cid
+    - amethyst-cluster
+    ports:
+    - "4222:4222"
+    - "8222:8222"
+    - "6222:6222"
+    restart: always
+    tty: true
+    
+  auth:
+    build: ./auth
+    command: npm start
+    ports:
+      - 3001:3001
+    restart: always
+    environment:
+      - MONGO_URI= ${MONGO_URI_AUTH}
+      - JWT_KEY=${JWT_KEY}
+      - NATS_CLIENT_ID=${NATS_CLIENT_ID_NOTI}
+      - NATS_URI=${NATS_URI}
+      - NATS_CLUSTER_ID=${NATS_CLUSTER_ID}
+  notification:
+    build: ./notification
+    command: npm start
+    ports:
+      - 3005:3005
+    restart: always
+    environment:
+      - MONGO_URI= ${MONGO_URI_NOTI}
+      - JWT_KEY=${JWT_KEY}
+      - NATS_CLIENT_ID=${NATS_CLIENT_ID_AUTH}
+      - NATS_URI=${NATS_URI}
+      - NATS_CLUSTER_ID=${NATS_CLUSTER_ID}
+  product:
+    build: ./product
+    command: npm start
+    ports:
+      - 3002:3002
+    restart: always
+    environment:
+      - MONGO_URI= ${MONGO_URI_PRODUCT}
+      - JWT_KEY=${JWT_KEY}
+      - NATS_CLIENT_ID=${NATS_CLIENT_ID_PRODUCT}
+      - NATS_URI=${NATS_URI}
+      - NATS_CLUSTER_ID=${NATS_CLUSTER_ID}
+  order:
+    build: ./order
+    command: npm start
+    ports:
+      - 3003:3003
+    restart: always
+    environment:
+      - MONGO_URI= ${MONGO_URI_ORDER}
+      - JWT_KEY=${JWT_KEY}
+      - NATS_CLIENT_ID=${NATS_CLIENT_ID_ORDER}
+      - NATS_URI=${NATS_URI}
+      - NATS_CLUSTER_ID=${NATS_CLUSTER_ID}
+  store:
+    build: ./store
+    command: npm start
+    ports:
+      - 3004:3004
+    restart: always
+    environment:
+      - MONGO_URI= ${MONGO_URI_STORE}
+      - JWT_KEY=${JWT_KEY}
+      - NATS_CLIENT_ID=${NATS_CLIENT_ID_STORE}
+      - NATS_URI=${NATS_URI}
+      - NATS_CLUSTER_ID=${NATS_CLUSTER_ID}
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8085:8080"
+    restart: always
+    volumes:
+      - ./nginx_config.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - auth
+      - product
+      - order
+      - store 
+volumes:
+  db:   

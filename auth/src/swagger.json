@@ -1,0 +1,4153 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "MarketPlace API",
+    "description": ""
+  },
+  "tags": [
+    {
+      "name": "Customer Auth",
+      "description": "customer login/signup, invite-only and forgot-password APIs"
+    },
+    {
+      "name": "Cart",
+      "description": "cart APIs"
+    },
+    {
+      "name": "Order",
+      "description": "order APIs"
+    },
+    {
+      "name": "Product",
+      "description": "product APIs"
+    },
+    {
+      "name": "Coupon",
+      "description": "Coupon APIs"
+    },
+    {
+      "name": "Product Review",
+      "description": "Product Review APIs"
+    },
+    {
+      "name": "Product wishlist",
+      "description": "Product Wishlist APIs"
+    },
+    {
+      "name": "Customer Address",
+      "description": "Customer Address APIs"
+    },
+    {
+      "name": "Admin Auth",
+      "description": "Admin login/signup, invite-only and forgot-password APIs"
+    },
+    {
+      "name": "Admin",
+      "description": "Admin genral APIs"
+    },
+    {
+      "name": "Business User Auth",
+      "description": "customer login/signup, invite-only and forgot-password APIs"
+    },
+    {
+      "name": "Business Profile",
+      "description": "Business Profile APIs"
+    },
+    {
+      "name": "Store",
+      "description": "store APIs"
+    },
+    {
+      "name": "Store workings | holidays day",
+      "description": "store working / holiday days APIs"
+    },
+    {
+      "name": "Master Data",
+      "description": "city, state and country"
+    },
+    {
+      "name": "Category",
+      "description": "BusinessCategory, BusinessSubCategory, ProductCategoy and ProductSubCategory"
+    }
+  ],
+  "paths": {
+    "/api/users/admin/permission": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Admin Auth"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/admin/rolecreate": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Admin Auth"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/admin/login": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Admin Auth"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "phoneNumber": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "password": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/admin/addadmin": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Admin Auth"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "example": "any"
+                },
+                "phoneNumber": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/admin/currentuser": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Admin Auth"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/admin/statuschange/{id}": {
+      "put": {
+        "description": "",
+        "tags": [
+          "Admin Auth"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/admin/forgotpassword/mailtrigger": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Admin Auth"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/admin/forgotpassword/codeverify": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Admin Auth"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/admin/updatepermission": {
+      "put": {
+        "description": "",
+        "tags": [
+          "Admin Auth"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/admin/waitinglist": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Admin Auth"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/admin/signout": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Admin Auth"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/admin/getalladmin": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Admin Auth"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/admin/getadmindetail/{id}": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Admin Auth"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/admin/getadminrules/{id}": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Admin Auth"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/admin/getadminbyname/{name}": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Admin Auth"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/customer/signup": {
+      "post": {
+        "description": "name, email/phoneNumber and password",
+        "tags": [
+          "Customer Auth"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name":{
+                  "example":"name"
+                },
+                "email": {
+                  "example": "abc@gmail.com"
+                },
+                "phoneNumber": {
+                  "example": "0000000000"
+                },
+                "password": {
+                  "example": "********"
+                },
+                "deviceId": {
+                  "example":"deviceId"
+                },
+                "fcmToken":{
+                  "example":"fcmToken"
+                },
+                "deviceType":{
+                  "example":"deviceType"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/customer/signin": {
+      "post": {
+        "description": "email/phoneNumber and password",
+        "tags": [
+          "Customer Auth"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "example": "abc@gmail.com"
+                },
+                "phoneNumber": {
+                  "example": "0000000000"
+                },
+                "password": {
+                  "example": "********"
+                },
+                "deviceId": {
+                  "example":"deviceId"
+                },
+                "fcmToken":{
+                  "example":"fcmToken"
+                },
+                "deviceType":{
+                  "example":"deviceType"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/customer/getallusers": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Customer Auth"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/customer/getuserbyid/{id}": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Customer Auth"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/customer/delete/{id}": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Customer Auth"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/customer/getuserbyname/{name}": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Customer Auth"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/customer/updateuser": {
+      "put": {
+        "description": "",
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "tags": [
+          "Customer Auth"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/customer/currentuser": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Customer Auth"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/customer/mailverifycode": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Customer Auth"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "required": [
+                "code"
+              ],
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "example": "Wpe8H1bZ"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/customer/forgotpassword/mailtrigger": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Customer Auth"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "required": [
+                "email"
+              ],
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": "abc@gmail.com"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/customer/forgotpassword/codeverify": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Customer Auth"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "required": [
+                "email",
+                "code",
+                "password"
+              ],
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": "abc@gmail.com"
+                },
+                "code": {
+                  "type": "string",
+                  "example": "nifhou-"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "*********"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/signout": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Customer Auth"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/customer/setinvitecode/{status}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "status",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/customer/getinvitecode": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/customeraddress/create": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Customer Address"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "phoneNumber": {
+                  "example": "7894561230"
+                },
+                "addressType": {
+                  "example": "house"
+                },
+                "isDefault": {
+                  "example": true
+                },
+                "addressLine1": {
+                  "example": "line 1"
+                },
+                "addressLine2": {
+                  "example": "line 2"
+                },
+                "cityId": {
+                  "example": "63c4db57085b9d67dc116842"
+                },
+                "stateId": {
+                  "example": "63c4db57085b9d67dc116842"
+                },
+                "countryId": {
+                  "example": "63c4db57085b9d67dc116842"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/customeraddress/updateaddress/{id}": {
+      "put": {
+        "description": "",
+        "tags": [
+          "Customer Address"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "phoneNumber": {
+                  "example": "7894561230"
+                },
+                "addressType": {
+                  "example": "house"
+                },
+                "isDefault": {
+                  "example": true
+                },
+                "addressLine1": {
+                  "example": "line 1"
+                },
+                "addressLine2": {
+                  "example": "line 2"
+                },
+                "cityId": {
+                  "example": "63c4db57085b9d67dc116842"
+                },
+                "stateId": {
+                  "example": "63c4db57085b9d67dc116842"
+                },
+                "countryId": {
+                  "example": "63c4db57085b9d67dc116842"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/customeraddress/delete/{id}": {
+      "delete": {
+        "description": "",
+        "tags": [
+          "Customer Address"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/customeraddress/get": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Customer Address"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/state/create": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Master Data"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/state/update/{id}": {
+      "put": {
+        "description": "",
+        "tags": [
+          "Master Data"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/state/delete/{id}": {
+      "delete": {
+        "description": "",
+        "tags": [
+          "Master Data"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/state/get": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Master Data"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/state/getdeactive": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Master Data"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/state/getactive": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Master Data"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/state/getstatebasedonname/{name}": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Master Data"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/state/getcountrybase/{id}": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Master Data"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/country/create": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Master Data"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/country/update/{id}": {
+      "put": {
+        "description": "",
+        "tags": [
+          "Master Data"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/country/delete/{id}": {
+      "delete": {
+        "description": "",
+        "tags": [
+          "Master Data"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/country/get": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Master Data"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/country/getactive": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Master Data"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/country/getdeactive": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Master Data"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/country/getcountrybasedonname/{name}": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Master Data"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/city/create": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Master Data"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/city/update/{id}": {
+      "put": {
+        "description": "",
+        "tags": [
+          "Master Data"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/city/delete/{id}": {
+      "delete": {
+        "description": "",
+        "tags": [
+          "Master Data"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/city/get": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Master Data"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/city/getactive": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Master Data"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/city/getdeactive": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Master Data"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/city/getbasedonname/{name}": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Master Data"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/city/getstatebase/{id}": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Master Data"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/businessuser/signup": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Business User Auth"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "example": "any"
+                },
+                "phoneNumber": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/businessuser/signin": {
+      "post": {
+        "description": "email/phoneNumber and password",
+        "tags": [
+          "Business User Auth"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "phoneNumber": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "password": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/businessuser/delete/{id}": {
+      "put": {
+        "description": "",
+        "tags": [
+          "Business User Auth"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/businessuser/currentuser": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Business User Auth"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/businessuser/mailverifytrigger": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Business User Auth"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/businessuser/mailverifycode": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Business User Auth"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "required": [
+                "code"
+              ],
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "example": "Wpe8H1bZ"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/businessuser/adduser": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Business User Auth"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "example": "any"
+                },
+                "phoneNumber": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/businessuser/forgotpassword/mailtrigger": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Business User Auth"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/businessuser/forgotpassword/codeverify": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Business User Auth"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/businessuser/getallusers": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Business User Auth"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/businessuser/getallactiveusers": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Business User Auth"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/businessuser/getalldeactiveusers": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Business User Auth"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/businessuser/getuserbyid/{id}": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Business User Auth"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/businessuser/getuserbyname/{name}": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Business User Auth"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/businessuser/getuserrole/{id}": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Business User Auth"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/businessuser/role/{id}": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Business User Auth"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/order/cart/create": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Cart"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "productId": {
+                  "example": "any"
+                },
+                "productItemId": {
+                  "example": "any"
+                },
+                "purchaseQuantity": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/order/cart/remove": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Cart"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/order/userdashboard": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/order/cart/remove/product": {
+      "put": {
+        "description": "",
+        "tags": [
+          "Cart"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "productId": {
+                  "example": "any"
+                },
+                "productItemId": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/order/cart/get": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Cart"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/order/create": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Order"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/order/product/create": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Order"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "productId": {
+                  "example": "any"
+                },
+                "productItemId": {
+                  "example": "any"
+                },
+                "qty": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/order/getorder/{id}": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Order"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/order/get": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Order"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/order/revenue": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/order/totalorderbusinesscateg": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/order/totalrevnuebusinesscateg": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/order/totalsalebusinessuserbased/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/order/totalcustomer/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/order/coupon/{id}": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Order"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/order/coupon/apply": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Order"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "orderId": {
+                  "example": "any"
+                },
+                "couponId": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/whislist/create": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Product wishlist"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "productId": {
+                  "example": "63db4eef63a0c6bafec8a535"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/whislist/delete/{id}": {
+      "delete": {
+        "description": "",
+        "tags": [
+          "Product wishlist"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/whislist/get": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Product wishlist"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "pagesize",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/productcategory/create": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Category"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/productcategory/update/{id}": {
+      "put": {
+        "description": "",
+        "tags": [
+          "Category"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/productcategory/delete/{id}": {
+      "put": {
+        "description": "",
+        "tags": [
+          "Category"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/productcategory/get": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Category"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/productcategory/getid/{id}": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Category"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/productcategory/getbusinesssubcategoryid/{id}": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Category"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/productcategory/getactive": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Category"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/productsubcategory/create": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Category"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/productsubcategory/update/{id}": {
+      "put": {
+        "description": "",
+        "tags": [
+          "Category"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/productsubcategory/delete/{id}": {
+      "put": {
+        "description": "",
+        "tags": [
+          "Category"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/productsubcategory/get": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Category"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/productsubcategory/getid/{id}": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Category"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/productsubcategory/getactive": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Category"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/productsubcategory/getbusinesssubcategoryid/{id}": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Category"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/search/{data}": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Product"
+        ],
+        "parameters": [
+          {
+            "name": "data",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/getproduct": {
+      "get": {
+        "description": "",
+        
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/getwith/variantproduct": {
+      "get": {
+        "description": "",
+        
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/get/variant/product": { 
+      "get": {
+        "description": "",
+        "tags": [
+          "Product"
+        ],
+        "parameters": [
+          {
+            "name": "productItemId",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "productId",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/variant/check": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/suggest/coupon/{id}": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Product"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/create": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Product"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/variant/create": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Product"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/update/{id}": {
+      "put": {
+        "description": "",
+        "tags": [
+          "Product"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/delete/{id}": {
+      "delete": {
+        "description": "",
+        "tags": [
+          "Product"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/get": { 
+      "get": {
+        "description": "",
+        "tags": [
+          "Product"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "pagesize",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "sortby",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/getproduct/{id}": {
+      "get": {
+        "description": "",
+       
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/getactive": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Product"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/getdeactive": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Product"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/getproductsubcategory/{id}": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Product"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/getproductwithaddonsandproductitem": {
+      "get": {
+        "description": "",
+        
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/getreviewbasedonproductid/{id}": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Product"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/productitem/create": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/productitem/update/{id}": {
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/productitem/delete/{id}": {
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/productitem/get": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/productitem/getproduct/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/addons/create": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/addons/update/{id}": {
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/addons/delete/{id}": {
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/addons/get": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/addons/getproduct/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/coupon/create": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Coupon"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "coupon name"
+                },
+                "discountPercentage": {
+                  "example": "85,"
+                },
+                "repeatCoupon": {
+                  "example": true
+                },
+                "maxUserLimit": {
+                  "example": 50
+                },
+                "maxDiscountAmount": {
+                  "example": 800
+                },
+                "maxOrderAmount": {
+                  "example": 50000
+                },
+                "description": {
+                  "example": "description"
+                },
+                "createdFor": {
+                  "example": "Product"
+                },
+                "startDate": {
+                  "example": "2023/2/9"
+                },
+                "endDate": {
+                  "example": "2023/2/15"
+                },
+                "isMonthlyActive": {
+                  "example": false
+                },
+                "imageUrl": {
+                  "example": "imageUrl"
+                },
+                "productId": {
+                  "example": [
+                    "63eb3974643bb141f31a8991",
+                    "63eb3974643bb141f31a8991"
+                  ]
+                },
+                "customerId": {
+                  "example": [
+                    "63eb3974643bb141f31a8991",
+                    "63eb3974643bb141f31a8991"
+                  ]
+                },
+                "productCategoryId": {
+                  "example": [
+                    "63eb3974643bb141f31a8991",
+                    "63eb3974643bb141f31a8991"
+                  ]
+                },
+                "productSubCategoryId": {
+                  "example": [
+                    "63eb3974643bb141f31a8991",
+                    "63eb3974643bb141f31a8991"
+                  ]
+                },
+                "storeId": {
+                  "example": [
+                    "63eb3974643bb141f31a8991",
+                    "63eb3974643bb141f31a8991"
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/coupon/update/{id}": {
+      "put": {
+        "description": "",
+        "tags": [
+          "Coupon"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/coupon/delete/{id}": {
+      "delete": {
+        "description": "",
+        "tags": [
+          "Coupon"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/coupon/get": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Coupon"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/coupon/getactive": {
+      "get": {
+        "description": "",
+        
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/coupon/getdeactive": {
+      "get": {
+        "description": "",
+       
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/my/coupon": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Coupon"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/attribute/create": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/attribute/update/{id}": {
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/attribute/delete/{id}": {
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/attribute/get": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/attributevalue/create": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/attributevalue/update/{id}": {
+      "put": {
+        "description": "",
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/attributevalue/delete/{id}": {
+      "delete": {
+        "description": "",
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/attributevalue/get": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/review/create": {
+      "post": {
+        "description": "",
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "tags": [
+          "Product Review"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "productId": {
+                  "example": "63db4eef63a0c6bafec8a535"
+                },
+                "comment": {
+                  "example": "good product"
+                },
+                "rate": {
+                  "example": 4.3
+                },
+                "imageUrl": {
+                  "example": [
+                    "url",
+                    "url2"
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/review/delete/{id}": {
+      "delete": {
+        "description": "",
+        "tags": [
+          "Product Review"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/product/review/get": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Product Review"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/businessprofile/create": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Business Profile"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/businessprofile/update/{id}": {
+      "put": {
+        "description": "",
+        "tags": [
+          "Business Profile"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/businessprofile/byadmin/delete/{id}": {
+      "delete": {
+        "description": "",
+        "tags": [
+          "Business Profile"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/businessprofile/get": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Business Profile"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/businessprofile/getactive": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Business Profile"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/businessprofile/getdeactive": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Business Profile"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/businessprofile/get/{id}": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Business Profile"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/businesscategory/create": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Category"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/businesscategory/update/{id}": {
+      "put": {
+        "description": "",
+        "tags": [
+          "Category"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/businesscategory/delete/{id}": {
+      "put": {
+        "description": "",
+        "tags": [
+          "Category"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/businesscategory/get": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Category"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/businesscategory/getid/{id}": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Category"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/businesscategory/getactive": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Category"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/businesssubcategory/create": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Category"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/businesssubcategory/update/{id}": {
+      "put": {
+        "description": "",
+        "tags": [
+          "Category"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/businesssubcategory/delete/{id}": {
+      "put": {
+        "description": "",
+        "tags": [
+          "Category"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/businesssubcategory/get": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Category"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/businesssubcategory/getid/{id}": {
+      "get": {
+        "tags": [
+          "Category"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/businesssubcategory/getactive": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Category"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/businesssubcategory/getBusinessCategoryId/{id}": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Category"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/businessprofilekyc/create": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Category"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/businessprofilekyc/update/{id}": {
+      "put": {
+        "description": "",
+        "tags": [
+          "Category"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/businessprofilekyc/get": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Business Profile"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/businessprofilekyc/getpending": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Business Profile"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/businessprofilekyc/getbybusinessprofileid/{id}": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Business Profile"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/create": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Store"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/update/{id}": {
+      "put": {
+        "description": "",
+        "tags": [
+          "Store"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/delete/{id}": {
+      "delete": {
+        "description": "",
+        "tags": [
+          "Store"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/get": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Store"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/getactive": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Store"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/getdeactive": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Store"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/get/{id}": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Store"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/storeworkingday/create": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Store workings | holidays day"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "storeId": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/storeworkingday/update/{id}": {
+      "put": {
+        "description": "",
+        "tags": [
+          "Store workings | holidays day"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/storeworkingday/delete/{id}": {
+      "delete": {
+        "description": "",
+        "tags": [
+          "Store workings | holidays day"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/storeworkingday/get/{id}": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Store workings | holidays day"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/storeholiday/create": {
+      "post": {
+        "description": "",
+        "tags": [
+          "Store workings | holidays day"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "storeId": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/storeholiday/update/{id}": {
+      "put": {
+        "description": "",
+        "tags": [
+          "Store workings | holidays day"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/storeholiday/delete/{id}": {
+      "delete": {
+        "description": "",
+        "tags": [
+          "Store workings | holidays day"
+        ],
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/store/storeholiday/get/{id}": {
+      "get": {
+        "description": "",
+        "tags": [
+          "Store workings | holidays day"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "JWT": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "token"
+    }
+  }
+}

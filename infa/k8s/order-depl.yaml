@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: order
+  template:
+    metadata:
+      labels:
+        app: order
+    spec:
+      containers:
+        - name: order
+          image: nidhi9521/order
+          env:
+            - name: NATS_CLIENT_ID
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: NATS_URI
+              value: http://nats-srv:4222
+            - name: NATS_CLUSTER_ID
+              value: rxshop
+            - name: MONGO_URI
+              # value: mongodb://marketplace-mongo-srv:27017/order
+              value: mongodb+srv://nidhi:Nidhi%400905@nasa.uvkxz6f.mongodb.net/order?tls=true&tlsInsecure=true
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: JWT_KEY
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: order-srv
+spec:
+  type: NodePort
+  selector:
+    app: order
+  ports:
+    - name: order
+      protocol: TCP
+      port: 8003
+      targetPort: 8003
+      nodePort: 30710
