@@ -86,5 +86,4 @@ services:
       - product
       - order
       - store 
-volumes:
-  db:   
+  
